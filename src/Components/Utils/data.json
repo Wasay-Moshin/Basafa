@@ -1,0 +1,33 @@
+[
+    {   
+        "id":1,
+        "img":"Assets/apy1.png",
+        "apy":"APY : 600%",
+        "deposit":"GMT"
+
+    },
+    {   "id":2,
+        "img":"Assets/apy2.png",
+        "apy":"3500%",
+        "deposit":"BUSD"
+
+    },
+    {   "id":3,
+        "img":"Assets/apy3.png",
+        "apy":"4000%",
+        "deposit":"USDT"
+
+    },
+    {   "id":4,
+        "img":"Assets/apy4.png",
+        "apy":"4000%",
+        "deposit":"USDC"
+
+    },
+    {   "id":5,
+        "img":"Assets/apy5.png",
+        "apy":"3400%",
+        "deposit":"WBNB"
+
+    }
+]
