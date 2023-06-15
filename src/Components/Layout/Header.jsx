@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
@@ -23,7 +23,9 @@ function Header() {
       <div className="">
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
-            <img src="assets/logo-img.png" width={90} alt="" />
+            <Link to={"/home"}>
+            <img className="img-fluid" src="assets/logo-img.png" width={90} alt="" />
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
