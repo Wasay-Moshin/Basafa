@@ -7,6 +7,7 @@ import { BsFillChatFill } from "react-icons/bs";
 function RoasterMenu() {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
+  const [isHovered3, setIsHovered3] = useState(false);
 
   const handleMouseEnter1 = () => {
     setIsHovered1(true);
@@ -22,6 +23,13 @@ function RoasterMenu() {
 
   const handleMouseLeave2 = () => {
     setIsHovered2(false);
+  };
+  const handleMouseEnter3 = () => {
+    setIsHovered3(true);
+  };
+
+  const handleMouseLeave3 = () => {
+    setIsHovered3(false);
   };
   return (
     <div className="roastermenu p-2 pt-3">
@@ -63,170 +71,13 @@ function RoasterMenu() {
               <p>0Std 0Min / 0 Schichten</p>
             </div>
             <div>
-              {isHovered1 && (
-                <span
-                  className=""
-                  type=""
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#offcanvasRight"
-                  aria-controls="offcanvasRight"
-                >
-                  <AiFillEdit size={20} />
-                </span>
-              )}
-              <div
-                className="offcanvas offcanvas-end"
-                tabindex="-1"
-                id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel"
-              >
-                <div className="offcanvas-header">
-                  {/* <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                  ></button> */}
-                  <div>
-                    <h5 className="offcanvas-title" id="offcanvasRightLabel">
-                      Edit Dashboard
-                    </h5>
-                  </div>
-                </div>
-
-                <div className="offcanvas-body p-4">
-                  <h6 className="pb-2">Widgets</h6>
-                  <div className="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      Beginning
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      Acccount
-                    </label>
-                  </div>{" "}
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      Pending Actions
-                    </label>
-                  </div>{" "}
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      news
-                    </label>
-                  </div>{" "}
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      events
-                    </label>
-                  </div>{" "}
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      birthday
-                    </label>
-                  </div>{" "}
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      labor cost share
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      Sales volume
-                    </label>
-                  </div>{" "}
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="exampleCheckbox"
-                    />
-                    <label className="form-check-label" for="exampleCheckbox">
-                      presence
-                    </label>
-                  </div>
-                </div>
-                <div className="p-3">
-                  <button
-                    type="button"
-                    class="align-self-end btn btn-block btn-outline-dark"
-                  >
-                    Interrupt
-                  </button>
-                  &nbsp; &nbsp; &nbsp;
-                  <button
-                    type="button"
-                    class="align-self-end btn btn-lg btn-block btn-primary"
-                  >
-                    save on computer
-                  </button>
-                </div>
-              </div>
+              {isHovered1 && <AiFillEdit size={20} />}
               &nbsp;&nbsp;
               {isHovered1 && <MdTableRows size={20} />}
               &nbsp;&nbsp;
               {isHovered1 && <BsFillChatFill size={20} />}
             </div>
           </div>
-          <hr/>
-          <div
-            className={`hover-div ${isHovered2 ? "hovered" : ""}`}
-            onMouseEnter={handleMouseEnter2}
-            onMouseLeave={handleMouseLeave2}
-          >
-            <div className="namemenu">
-              <span>Hassan khalid</span>
-              <p>0Std 0Min / 0 Schichten</p>
-            </div>
-            <div>
-              {isHovered2 && <AiFillEdit size={20} />}
-              &nbsp;&nbsp;
-              {isHovered2 && <MdTableRows size={20} />}
-              &nbsp;&nbsp;
-              {isHovered2 && <BsFillChatFill size={20} />}
-            </div>
-          </div>
           <hr />
           <div
             className={`hover-div ${isHovered2 ? "hovered" : ""}`}
@@ -246,7 +97,7 @@ function RoasterMenu() {
             </div>
           </div>
           <hr />
-          <div
+          {/* <div
             className={`hover-div ${isHovered2 ? "hovered" : ""}`}
             onMouseEnter={handleMouseEnter2}
             onMouseLeave={handleMouseLeave2}
@@ -261,6 +112,24 @@ function RoasterMenu() {
               {isHovered2 && <MdTableRows size={20} />}
               &nbsp;&nbsp;
               {isHovered2 && <BsFillChatFill size={20} />}
+            </div>
+          </div>
+          <hr /> */}
+          <div
+            className={`hover-div ${isHovered3 ? "hovered" : ""}`}
+            onMouseEnter={handleMouseEnter3}
+            onMouseLeave={handleMouseLeave3}
+          >
+            <div className="namemenu">
+              <span>Hassan khalid</span>
+              <p>0Std 0Min / 0 Schichten</p>
+            </div>
+            <div>
+              {isHovered3 && <AiFillEdit size={20} />}
+              &nbsp;&nbsp;
+              {isHovered3 && <MdTableRows size={20} />}
+              &nbsp;&nbsp;
+              {isHovered3 && <BsFillChatFill size={20} />}
             </div>
           </div>
           <hr />

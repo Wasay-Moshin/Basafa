@@ -26,7 +26,7 @@ function App() {
             <Route path="/employeegroup" element={<EmployeePersonalGroup />} />
             <Route path="/roaster" element={<Roaster/>}/>
 
-            {/* <Route path="/lohn" element={<Lohn/>} /> */}
+            <Route path="/lohn" element={<Lohn/>} />
           </Routes>
         </Base>
       </BrowserRouter>

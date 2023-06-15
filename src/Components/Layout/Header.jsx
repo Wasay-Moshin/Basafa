@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
@@ -16,6 +15,9 @@ function Header() {
   const employeegroup = () => {
     navigate("/employeegroup");
   };
+  const lohn =()=>{
+    navigate("/lohn")
+  }
   return (
     <div className="header">
       <div className="">
@@ -168,6 +170,7 @@ function Header() {
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
+                    onClick={lohn}
                   >
                     Lohn
                   </a>
