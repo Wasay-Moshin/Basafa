@@ -15,16 +15,24 @@ function Header() {
   const employeegroup = () => {
     navigate("/employeegroup");
   };
-  const lohn =()=>{
-    navigate("/lohn")
-  }
+  const lohn = () => {
+    navigate("/lohn");
+  };
+  const report = () => {
+    navigate("/report");
+  };
   return (
     <div className="header">
       <div className="">
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
             <Link to={"/home"}>
-            <img className="img-fluid" src="assets/logo-img.png" width={90} alt="" />
+              <img
+                className="img-fluid"
+                src="assets/logo-img.png"
+                width={90}
+                alt=""
+              />
             </Link>
             <button
               className="navbar-toggler"
@@ -141,6 +149,7 @@ function Header() {
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
+                    onClick={report}
                   >
                     Reports
                   </a>

@@ -134,7 +134,6 @@ function Hero() {
                   </label>
                   <select className="form-control" id="dropdownInput">
                     <option value="option1">CSV (Semikolon getrennt)</option>
-                    <option value="option1">CSV (Semikolon getrennt)</option>
                   </select>
                 </div>
               </div>
