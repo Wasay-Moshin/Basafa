@@ -1,63 +1,58 @@
-.navbar {
-  // position: fixed;
-  width: 100%;
-  // z-index: 1;
-  // top: 0;
-  background-color: #192533 !important;
-  p {
-    color: white;
-    font-size: 14px;
-  }
-  .nav-link {
-    font-size: 14px;
-    color: white;
-  }
-  .dropdown-menu {
-    font-size: 12px;
-    width: 20px;
-  }
-  .list-unstyled {
-    margin-left: 350px;
-  }
-  // .nav-link:hover {
-  //   color: white;
-  //   background-color: #62778f;
-  //   border-radius: 10px;
-  // }
-}
-// .header{
-//   background-color: rgb(25, 37, 51);
-//   li{
-//     margin-left: 10px;
+// .navbar {
+//   // position: fixed;
+//   width: 100%;
+//   // z-index: 1;
+//   // top: 0;
+//   background-color: #192533 !important;
+//   p {
+//     color: white;
+//     font-size: 14px;
 //   }
-//   a{
-//     color: white !important;
-//     font-size: 0.85rem;
-//     font-weight: 400;
+//   .nav-link {
+//     font-size: 14px;
+//     color: white;
 //   }
-//   .dropdown-toggle::after{
-//     margin-left: 0.5rem !important;
+//   .dropdown-menu {
+//     font-size: 12px;
+//     width: 20px;
 //   }
-//   .dropdown:hover>.dropdown-menu {
-//     display: block;
-//     margin-left: 6px;
-//     border-radius: 3px;
-//     padding-top: 0px;
-//     padding-bottom: 0px;
-//     text-align: start !important;
-//     &:hover{
-//       color: lightblue !important;
-//     }
+//   .list-unstyled {
+//     margin-left: 350px;
 //   }
-
-//   .dropdown>.dropdown-toggle:active {
-//       pointer-events: none;
-//       color: lightblue !important;
-//   }
-//   .dark{
-//     color:black !important
-//   }
+//   // .nav-link:hover {
+//   //   color: white;
+//   //   background-color: #62778f;
+//   //   border-radius: 10px;
+//   // }
 // }
+.header{
+  background-color: rgb(25, 37, 51);
+  li{
+    margin-left: 10px;
+  }
+  a{
+    color: white !important;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+  .dropdown-toggle::after{
+    margin-left: 0.5rem !important;
+  }
+  .dropdown:hover>.dropdown-menu {
+    display: block;
+    margin-left: 6px;
+    border-radius: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: start !important;
+    &:hover{
+      color: lightblue !important;
+    }
+  }
+  .dark{
+    color:black !important
+  }
+}
 
 .hero {
   background-image: url(Media/download.svg);
