@@ -30,7 +30,7 @@ function Header() {
           <div className="container-fluid ">
             <a className="navbar-brand" href="/">
               <img
-                src="Assets/logo-img.png"
+                src="assets/logo-img.png"
                 alt="not found"
                 className="img-fluid"
                 width={"80px"}
