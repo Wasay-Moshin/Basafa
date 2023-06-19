@@ -30,14 +30,14 @@ function Header() {
     <div className="header">
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <div className="navbar-brand" href="/">
             <img
               src="assets/logo-img.png"
               alt="not found"
               className="img-fluid"
               width={120}
             />
-          </a>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
