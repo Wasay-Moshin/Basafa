@@ -35,13 +35,13 @@ function RoasterMenu() {
     <div className="roastermenu p-2 pt-3">
       <div className="p-2">
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-outline-primary">
+          <button type="button" class="group-btn">
             employee &nbsp;
           </button>
-          <button type="button" class="btn btn-outline-primary">
+          <button type="button" class="group-btn1">
             The group
           </button>
-          <button type="button" class="btn btn-outline-primary">
+          <button type="button" class="group-btn2">
             positions &nbsp;
           </button>
         </div>

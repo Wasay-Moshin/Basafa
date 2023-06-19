@@ -11,7 +11,7 @@ function RoasterNav() {
               <div className="btn-group">
                 <button
                   type="button"
-                  class="btn btn-primary dropdown-toggle"
+                  class="btn-today dropdown-toggle"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
@@ -73,7 +73,7 @@ function RoasterNav() {
               <div className="btn-group">
                 <button
                   type="button"
-                  class="btn btn-primary dropdown-toggle"
+                  class="btn-today dropdown-toggle"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
@@ -108,7 +108,7 @@ function RoasterNav() {
               <div className="btn-group">
                 <button
                   type="button"
-                  class="btn btn-primary dropdown-toggle"
+                  class="btn-today dropdown-toggle"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >

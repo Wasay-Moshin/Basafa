@@ -89,7 +89,7 @@ function Comparisontable() {
                           {" "}
                           <BsFillPlusCircleFill
                             className="plus"
-                            size={"20px"}
+                            size={"25px"}
                           />
                         </button>
                         {isModalOpen && (

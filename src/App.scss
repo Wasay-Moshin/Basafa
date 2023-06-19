@@ -25,35 +25,45 @@
 //   //   border-radius: 10px;
 //   // }
 // }
-.header{
-  background-color: rgb(25, 37, 51);
-  li{
+.header {
+  .navbar {
+    box-shadow: 0 4px 6px -6px #8cb56c;
+
+
+  }
+  li {
     margin-left: 10px;
   }
-  a{
-    color: white !important;
-    font-size: 0.85rem;
-    font-weight: 400;
+  a {
+    color: #199bd7 !important;
+    font-size: 14px;
+    font-weight: 500;
   }
-  .dropdown-toggle::after{
+  .dropdown-toggle::after {
     margin-left: 0.5rem !important;
   }
-  .dropdown:hover>.dropdown-menu {
+  .dropdown:hover > .dropdown-menu {
     display: block;
     margin-left: 6px;
     border-radius: 3px;
     padding-top: 0px;
     padding-bottom: 0px;
     text-align: start !important;
-    &:hover{
+    &:hover {
       color: lightblue !important;
     }
   }
-  .dark{
-    color:black !important
+  .dropdown-menu {
+    background-color: #81c948;
+  }
+  .dropdown-item:hover {
+    background-color: #81c948;
+  }
+  .dark {
+    color: black !important;
+    font-size: 12px;
   }
 }
-
 .hero {
   background-image: url(Media/download.svg);
   background-repeat: no-repeat;
@@ -77,7 +87,9 @@
   }
   .btn-outline-secondary {
     color: black;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #81c948;
   }
   .btn-outline-secondary:hover {
     background-color: transparent !important;
@@ -102,9 +114,9 @@
   // background-color: #F0F2F5;
   .card {
     border-radius: 4px;
-    box-shadow: rgba(13, 80, 110, 0.64) 0px 0px 0.0625rem,
-      rgba(13, 80, 110, 0.08) 0px 0.25rem 0.5rem,
-      rgba(13, 80, 110, 0.04) 0px 0.5rem 1rem;
+    box-shadow: rgba(43, 190, 57, 0.64) 0px 0px 0.0625rem,
+      rgba(66, 177, 94, 0.08) 0px 0.25rem 0.5rem,
+      rgba(73, 189, 104, 0.04) 0px 0.5rem 1rem;
   }
   .row-title-text {
     font-size: 12px;
@@ -181,15 +193,18 @@
   }
   .btn-secondary {
     background-color: white;
+    border: 1px solid #81c948;
     color: black;
   }
   .btn-secondary:hover {
-    background-color: white;
+    background-color: transparent;
+    color: black;
   }
   .btn-emp {
-    background-color: rgb(25, 155, 215);
+    background-color: #81c948;
     border: none;
-    color: white;
+    color: black;
+    font-size: 14px;
     font-weight: 400;
     border-radius: 5px;
     padding: 4px 5px;
@@ -220,7 +235,7 @@
     background: rgb(255, 255, 255);
     height: 2rem;
     border-radius: 0.25rem;
-    border: 1px solid rgb(205, 213, 223);
+    border: 1px solid #81c948;
     color: rgb(43, 55, 70);
     font-size: 0.75rem;
     line-height: 1rem;
@@ -241,7 +256,7 @@
     transition: color 100ms ease-in-out 0s,
       background-color 100ms ease-in-out 0s, border-color 100ms ease-in-out 0s,
       box-shadow 100ms ease-in-out 0s;
-    border-color: rgb(205, 213, 223);
+    border-color: #81c948;
     background-color: white;
     color: rgb(43, 55, 70);
   }
@@ -360,32 +375,31 @@
 }
 .roasternav {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  .btn-primary {
-    background-color: transparent;
-    font-size: 12px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: rgb(43, 55, 70);
-    border-color: rgb(43, 55, 70);
-    font-weight: 600;
-  }
+  padding-top: 10px;
+  padding-bottom: 10px;
   .btn-today {
     border-radius: 5px;
-    border-width: 1px;
-    padding: 8px 14px;
+    border-width: 0px;
+    padding: 8px 16px;
     font-size: 12px;
-    border-color: rgb(43, 55, 70);
-    background-color: white;
+    color: black;
+    border-color: #81c948;
     font-weight: 600;
+    background-color: #81c948;
+    box-shadow: 0 4px 6px -6px #81c948;
   }
   .btn-outline-primary {
     border-color: rgb(43, 55, 70);
     color: black;
-    font-size: 14px;
+    font-size: 12px;
+    color: black;
+    border-color: #81c948;
+    font-weight: 600;
+    background-color: #81c948;
+    box-shadow: 0 4px 6px -6px #81c948;
   }
   .btn-outline-primary:hover {
-    background-color: transparent;
-    color: #62778f;
+    background-color: #81c948;
   }
 }
 .roastermenu {
@@ -406,7 +420,8 @@
   }
   p {
     font-size: 12px;
-    color: blue;
+    color: #199bd7;
+    font-weight: 500;
   }
   .menubody {
     span {
@@ -416,9 +431,28 @@
       color: #62778f;
       font-size: 12px;
     }
-    // .offcanvas{
-    //   z-index: 5;
-    // }
+  }
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    .group-btn {
+      border: 1px solid #81c948;
+      border-radius: 4px 0 0 4px;
+      box-shadow: 0 2px 4px 0 rgba(25, 215, 25, 0.2);
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+    .group-btn1 {
+      border: 1px solid #81c948;
+      box-shadow: 0 2px 4px 0 rgba(25, 215, 25, 0.2);
+      font-size: 12px;
+    }
+    .group-btn2 {
+      border: 1px solid #81c948;
+      border-radius: 0px 4px 4px 0px;
+      box-shadow: 0 2px 4px 0 rgba(25, 215, 25, 0.2);
+      font-size: 12px;
+    }
   }
 }
 .hover-div {
@@ -444,7 +478,6 @@
 .hover-div:hover img {
   opacity: 1;
 }
-
 .comparison-bg {
   .monday {
     white-space: nowrap;
@@ -467,6 +500,9 @@
     // border: solid;
     padding: 10px;
   }
+  td:hover {
+    background-color: #e4e5e5;
+  }
   tr {
     border: none #cfcccc !important;
   }
@@ -476,9 +512,10 @@
   .plus {
     color: white !important;
     z-index: 1;
+    // background-color: #8696a4;
   }
   .plus:hover {
-    color: #199bd7 !important;
+    color: #81c948 !important;
   }
   .button1 {
     margin-top: 10px;
@@ -488,7 +525,7 @@
     &:hover {
       // display: block !important;
       border: none !important;
-      background-color: none !important;
+      // background-color: #8696a4 !important;
     }
   }
   hr {
@@ -584,10 +621,11 @@
       rgba(13, 80, 110, 0.04) 0px 0.5rem 1rem;
   }
   .btn {
-    background-color: #199bd7;
+    background-color: #81c948;
+    border: none;
     font-size: 12px;
     font-weight: 600;
-    color: white;
+    color: black;
   }
 }
 .lohnhero {
@@ -597,10 +635,9 @@
     background-color: white;
     width: 100%;
     padding: 1rem;
-    border-radius: 4px;
-    box-shadow: rgba(43, 126, 165, 0.64) 0px 0px 0.0625rem,
-      rgba(13, 80, 110, 0.08) 0px 0.25rem 0.5rem,
-      rgba(13, 80, 110, 0.04) 0px 0.5rem 1rem;
+    box-shadow: rgba(43, 190, 57, 0.64) 0px 0px 0.0625rem,
+      rgba(66, 177, 94, 0.08) 0px 0.25rem 0.5rem,
+      rgba(73, 189, 104, 0.04) 0px 0.5rem 1rem;
   }
   label {
     font-size: 12px;

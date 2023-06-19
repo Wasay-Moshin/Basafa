@@ -2,14 +2,17 @@ import React from "react";
 import RoasterNav from "../Components/Element/Roaster/RoasterNav";
 import Header from "../Components/Layout/Header";
 import Hero from "../Components/Element/Roaster/Hero";
+// import Comparisontable from "../Components/Element/Roaster/Comparisontable";
+// import RoasterMenu from "../Components/Element/Roaster/RoasterMenu";
 // import RoasterMenu from "../Components/Element/Roaster/RoasterMenu";
 
 function Roaster() {
   return (
-    <div>
+    <div className="roaster">
       <Header />
       <RoasterNav />
-      <Hero/>
+      {/* <RoasterMenu /> */}
+      <Hero />
     </div>
   );
 }

@@ -8,7 +8,7 @@ function Menubar() {
         <div className="p-2">
           <div className=" d-flex justify-content-between">
             <h6>All departments</h6>
-               <HiPlusCircle color="rgb(25, 155, 215)" size={20} />
+               <HiPlusCircle color="#81c948" size={25} />
           </div>
           <hr />
           <div>
@@ -18,7 +18,7 @@ function Menubar() {
           <div>
             <div className="d-flex justify-content-between">
               <span>The personal group</span>
-              <HiPlusCircle color="rgb(25, 155, 215)" size={20} />
+              <HiPlusCircle color="#81c948" size={25} />
             </div>
             <div className="pt-2">
               <p>All employee</p>
