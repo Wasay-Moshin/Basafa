@@ -28,8 +28,12 @@
 .header {
   .navbar {
     box-shadow: 0 4px 6px -6px #8cb56c;
-
-
+    .active {
+      // text-decoration: underline black;
+      font-weight: 600;
+      background-color: #e7e9eb;
+      border-radius: 2px;
+    }
   }
   li {
     margin-left: 10px;
@@ -38,6 +42,9 @@
     color: #199bd7 !important;
     font-size: 14px;
     font-weight: 500;
+    &:hover {
+      background-color: #e7e9eb;
+    }
   }
   .dropdown-toggle::after {
     margin-left: 0.5rem !important;
