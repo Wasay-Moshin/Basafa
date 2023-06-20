@@ -226,33 +226,9 @@ function Header() {
                   </li>
                 </ul>
               </li>
-              {/* 
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  activeClassName="active"
-                to=""
-                >
-                  <a className="nav-link" aria-current="page">
-                    Ideas
-                  </a>
-                </NavLink>
-              </li> */}
             </ul>
             <form className="d-flex" role="search">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {/* <li className="nav-item d-flex ">
-                  <HiOutlineClock
-                    color="white"
-                    className="mt-2"
-                    size={"25px"}
-                  />{" "}
-                  &nbsp;
-                  <a className="nav-link" aria-current="page" href="/">
-                    <img src="Assets/clock.svg" alt="clock" className='img-fluid' width={"25px"} style={{fill:"7128558"}} /> &nbsp;
-                    28 trial days left
-                  </a>
-                </li> */}
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
@@ -274,7 +250,6 @@ function Header() {
                         Another action
                       </a>
                     </li>
-                    {/* <li><hr className="dropdown-divider dark"/></li> */}
                     <li>
                       <a className="dropdown-item dark" href="/">
                         Something else here
@@ -303,7 +278,6 @@ function Header() {
                         Another action
                       </a>
                     </li>
-                    {/* <li><hr className="dropdown-divider dark"/></li> */}
                     <li>
                       <a className="dropdown-item dark" href="/">
                         Something else here
