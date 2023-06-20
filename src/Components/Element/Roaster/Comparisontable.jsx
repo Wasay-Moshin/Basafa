@@ -5,6 +5,9 @@ import { BsFillPlusCircleFill } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import data from "../../Utils/data.json";
 import data1 from "../../Utils/data1.json";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+
 import {
   MDBContainer,
   MDBTable,
@@ -13,7 +16,6 @@ import {
 } from "mdb-react-ui-kit";
 
 function Comparisontable() {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -26,6 +28,16 @@ function Comparisontable() {
 
   return (
     <div className="comparison-bg">
+      <ReactTooltip
+        anchorId="app-title"
+        place="top"
+        content="Hide the day so employee cant see the day shifts"
+      />
+      <ReactTooltip
+        anchorId="second-app-title"
+        place="top"
+        content="Add a headline and comment to tag"
+      />
       <MDBContainer className="container-fluid pt-1">
         <MDBTable
           responsive
@@ -35,43 +47,44 @@ function Comparisontable() {
           <MDBTableHead className=" text-center">
             <tr>
               <th scope="col" className="monday">
-                Monday, June 5th
+                Monday, June 19th
+                <br />
+                <TbEyeFilled id="app-title" size={"15px"} />
+                &nbsp; <FiEdit id="second-app-title" /> &nbsp; <br />0 Layer
+                &nbsp;
+              </th>
+              <th scope="col" className="monday">
+                Tuesday, June 20th
                 <br />
                 <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
                 Layer &nbsp;
               </th>
               <th scope="col" className="monday">
-                Monday, June 5th
+                Wednesday, June 21th
                 <br />
                 <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
                 Layer &nbsp;
               </th>
               <th scope="col" className="monday">
-                Monday, June 5th
+                Thrusday, June 22th
                 <br />
                 <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
                 Layer &nbsp;
               </th>
               <th scope="col" className="monday">
-                Monday, June 5th
+                Friday, June 23th
                 <br />
                 <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
                 Layer &nbsp;
               </th>
               <th scope="col" className="monday">
-                Monday, June 5th
+                Saturday, June 24th
                 <br />
                 <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
                 Layer &nbsp;
               </th>
               <th scope="col" className="monday">
-                Monday, June 5th
-                <br />
-                <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
-                Layer &nbsp;
-              </th>
-              <th scope="col" className="monday">
-                Monday, June 5th
+                Sunday, June 25th
                 <br />
                 <TbEyeFilled size={"15px"} /> &nbsp; <FiEdit /> &nbsp; <br />0
                 Layer &nbsp;
@@ -96,17 +109,18 @@ function Comparisontable() {
                           <div className="modal-overlay">
                             <div className="modal-content">
                               <div className="modal-nav d-flex justify-content-between">
-                                <div className="d-flex gap-3">
+                                <div className="d-flex gap-2">
                                   <div>
                                     <img
+                                      className="img-fluid mt-3"
                                       src="assets/user.png"
                                       alt=""
-                                      width={80}
+                                      width={60}
                                     />
                                   </div>
                                   <div className="text-start pt-3">
                                     <p className="">ERSTELLEN OFFENE SCHICHT</p>
-                                    <h1>Montag, 5. Juni 2023</h1>
+                                    <h4>Montag, 5. Juni 2023</h4>
                                   </div>
                                 </div>
                                 <div className="d-flex gap-4">
@@ -114,190 +128,163 @@ function Comparisontable() {
                                     className="cross-btn"
                                     onClick={handleCloseModal}
                                   >
-                                    <RxCross2 />
+                                    <RxCross2 size={30} />
                                   </button>
                                 </div>
                               </div>
                               <div className="modal-body">
                                 <div className="container-fluid">
-                                  <div className="row">
+                                  <div className="row justify-content-center mt-4">
                                     <div className="col-md-10">
-                                      <div className="d-flex gap-5 mt-2">
-                                        <div className="col-md-3">
-                                          <div className="text-start">
-                                            <label className="mb-2">Zeit</label>
-                                            <div className="d-flex">
-                                              <input
-                                                type="text"
-                                                className="form-control"
-                                              />
-                                              &nbsp;
-                                              <input
-                                                type="text"
-                                                className="form-control"
-                                              />
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div className="col-md-7">
-                                          <div class="form-group text-start ">
+                                      <div className="card p-4 text-start">
+                                        <h4>Schicht hinzufügen</h4>
+                                        <div className="row">
+                                          <div className="col-md-6">
                                             <label
-                                              className="mb-2"
-                                              for="dropdownInput"
+                                              for="exampleInputEmail"
+                                              className="form-label "
                                             >
-                                              Schichtart
+                                              Kunden
                                             </label>
-                                            <select
-                                              className="form-control"
-                                              id="dropdownInput"
+                                            <select className="form-control">
+                                              <option>Railway Station</option>
+                                            </select>
+                                          </div>
+                                          <div className="col-md-6">
+                                            <label
+                                              for="exampleInputEmail"
+                                              className="form-label "
                                             >
-                                              <option value="option1">
-                                                Normal
+                                              Treiber
+                                            </label>
+                                            <select className="form-control">
+                                              <option>
+                                                Wählen Sie Treiber
                                               </option>
                                             </select>
                                           </div>
+                                          <div className="col-md-3">
+                                            <label
+                                              htmlFor=""
+                                              className="form-label"
+                                            >
+                                              Startdatum
+                                            </label>
+                                            <input
+                                              type="date"
+                                              className="form-control"
+                                            />
+                                          </div>
+                                          <div className="col-md-3">
+                                            <label
+                                              htmlFor=""
+                                              className="form-label"
+                                            >
+                                              Endtermin
+                                            </label>
+                                            <input
+                                              type="date"
+                                              className="form-control"
+                                            />
+                                          </div>
+                                          <div className="col-md-3">
+                                            <label
+                                              htmlFor=""
+                                              className="form-label"
+                                            >
+                                              Aus
+                                            </label>
+                                            <input
+                                              type="time"
+                                              className="form-control"
+                                            />
+                                          </div>
+                                          <div className="col-md-3">
+                                            <label
+                                              htmlFor=""
+                                              className="form-label"
+                                            >
+                                              Zu
+                                            </label>
+                                            <input
+                                              type="time"
+                                              className="form-control"
+                                            />
+                                          </div>
+                                          <div className="col-md-6">
+                                            <label
+                                              for="exampleInputEmail"
+                                              className="form-label "
+                                            >
+                                              Zugstrecke
+                                            </label>
+                                            <select className="form-control">
+                                              <option>Wähle eine Option</option>
+                                            </select>
+                                          </div>
+                                          <div className="col-md-6">
+                                            <label
+                                              for="exampleInputEmail"
+                                              className="form-label "
+                                            >
+                                              Nächste Tage Shift Visisblity
+                                            </label>
+                                            <select className="form-control">
+                                              <option>
+                                                Wählen Sie Treiber
+                                              </option>
+                                              <option>1 Days</option>
+                                              <option>2 Days</option>{" "}
+                                              <option>3 Days</option>{" "}
+                                              <option>4 Days</option>{" "}
+                                              <option>5 Days</option>
+                                              <option>6 Days</option>
+                                              <option>7 Days</option>
+                                              <option>8 Days</option>
+                                              <option>9 Days</option>
+                                              <option>10 Days</option>
+                                            </select>
+                                          </div>
+                                          <div class="form-check form-switch">
+                                            <input
+                                              class="form-check-input"
+                                              type="checkbox"
+                                              id="flexSwitchCheckChecked"
+                                            />
+                                            <label
+                                              class="form-check-label"
+                                              for="flexSwitchCheckChecked"
+                                            >
+                                              Mit Wochenendarbeit
+                                            </label>
+                                          </div>
+                                          <div className="col-md-12">
+                                            <label
+                                              for="exampleFormControlTextarea1"
+                                              class="form-label"
+                                            >
+                                              Comment
+                                            </label>
+                                            <textarea
+                                              class="form-control"
+                                              id="exampleFormControlTextarea1"
+                                              rows="3"
+                                            ></textarea>
+                                          </div>
+                                          <div className="d-flex gap-2">
+                                            <button className="btn btn-primary">
+                                              Speichern
+                                            </button>
+                                            <button className="btn btn-primary">
+                                              Stornieren
+                                            </button>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
-                                    <div className="col-md-2">
-                                      <div className="text-start mt-2">
-                                        <div>
-                                          <span className="text-start">
-                                            pause
-                                          </span>
-                                        </div>
-                                        <div className="mt-3">
-                                          <span className="">0 m</span>
-                                        </div>
-                                        <hr className="mt-4" />
-                                      </div>
-                                    </div>
                                   </div>
-                                  <div className="row">
-                                    <div className="col-md-9">
-                                      <div class="form-group text-start ">
-                                        <label
-                                          className="mb-2"
-                                          for="dropdownInput"
-                                        >
-                                          Mitarbeiter
-                                        </label>
-                                        <select
-                                          className="form-control"
-                                          id="dropdownInput"
-                                        >
-                                          <option value="option1">
-                                            Offene Schicht
-                                          </option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="row mt-2">
-                                    <div className="col-md-9">
-                                      <div class="form-group text-start ">
-                                        <label
-                                          className="mb-2"
-                                          for="dropdownInput"
-                                        >
-                                          Gruppe oder Position
-                                        </label>
-                                        <select
-                                          className="form-control"
-                                          id="dropdownInput"
-                                        >
-                                          <option value="option1">
-                                            Auswählen
-                                          </option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="row mt-2">
-                                    <div className="col-md-12">
-                                      <nav>
-                                        <div
-                                          class="nav nav-tabs"
-                                          id="nav-tab"
-                                          role="tablist"
-                                        >
-                                          <button
-                                            class="nav-link active"
-                                            id="nav-home-tab"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#nav-home"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="nav-home"
-                                            aria-selected="true"
-                                          >
-                                            Kommentar
-                                          </button>
-                                          <button
-                                            class="nav-link"
-                                            id="nav-profile-tab"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#nav-profile"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="nav-profile"
-                                            aria-selected="false"
-                                          >
-                                            lohn
-                                          </button>
-                                          <button
-                                            class="nav-link"
-                                            id="nav-contact-tab"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#nav-contact"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="nav-contact"
-                                            aria-selected="false"
-                                          >
-                                            Schicht kopieren
-                                          </button>
-                                          <button
-                                            class="nav-link"
-                                            id="nav-contact-tab"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#nav-contact"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="nav-contact"
-                                            aria-selected="false"
-                                          >
-                                            Lohnzuschlag
-                                          </button>
-                                        </div>
-                                      </nav>
-                                      <div>
-                                        <textarea
-                                          className="text-area-field__text-area text-field--primary text-area-field__text-area--primary mt-2"
-                                          name="text"
-                                          id=""
-                                          cols="30"
-                                          rows="10"
-                                        ></textarea>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <hr />
-                                <div class="modal-footer p-2 ">
-                                  <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                  >
-                                    Abbrechen
-                                  </button>
-                                  &nbsp;
-                                  <button type="button" className="btn btn-outline-secondary" disabled>
-                                  Erstellen
-                                  </button>
                                 </div>
                               </div>
-                              <div></div>
                             </div>
                           </div>
                         )}

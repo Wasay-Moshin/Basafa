@@ -38,6 +38,7 @@ function Header() {
               width={120}
             />
           </div>
+
           <button
             className="navbar-toggler"
             type="button"
