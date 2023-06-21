@@ -3,7 +3,7 @@ import Faq from "react-faq-component";
 const data = {
   rows: [
     {
-      title: "1. Planday",
+      title: "1. Basafa",
       content: `Our quick tour will walk you through setting up your roster and show you how to create and invite collaborators in no time.`,
     },
   ],
@@ -32,14 +32,14 @@ const data4 = {
     },
   ],
 };
-const data5 = {
-  rows: [
-    {
-      title: "5. setup time tracking",
-      content: `Time tracking allows you to accurately record hours worked. Activate the function under "Settings > Time tracking > Employee access". Your employees can then register the start and end of their shifts via their devices.`,
-    },
-  ],
-};
+// const data5 = {
+//   rows: [
+//     {
+//       title: "5. setup time tracking",
+//       content: `Time tracking allows you to accurately record hours worked. Activate the function under "Settings > Time tracking > Employee access". Your employees can then register the start and end of their shifts via their devices.`,
+//     },
+//   ],
+// };
 
 const styles = {
   bgColor: " white",
@@ -75,12 +75,12 @@ function Faqs() {
 
                 <Faq data={data4} styles={styles} config={config} />
 
-                <Faq data={data5} styles={styles} config={config} />
+                {/* <Faq data={data5} styles={styles} config={config} /> */}
               </div>
             </div>
           </div>
         </div>
-        <div className="row justify-content-center mt-4">
+        {/* <div className="row justify-content-center mt-4">
           <div className="col-md-8">
             <div className="card">
               <div className="beg">
@@ -93,7 +93,7 @@ function Faqs() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

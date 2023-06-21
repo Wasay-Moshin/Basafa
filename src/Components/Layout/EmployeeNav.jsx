@@ -217,7 +217,6 @@ function EmployeeNav() {
               </div>
             </div>
           </div>
-          <b>1-2 von 2</b>
         </div>
       </div>
     </div>

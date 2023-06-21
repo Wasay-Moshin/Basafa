@@ -2,30 +2,9 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoMdMail } from "react-icons/io";
 import { HiOutlineClock } from "react-icons/hi";
+import { FaUserCircle } from "react-icons/fa";
 
 function Header() {
-  const [activeItem, setActiveItem] = useState("start");
-
-  const handleItemClick = (item) => {
-    setActiveItem(item);
-  };
-  const navigate = useNavigate();
-  const employee = () => {
-    navigate("/employee");
-  };
-  const home = () => {
-    navigate("/home");
-  };
-  const roaster = () => {
-    navigate("/roaster");
-  };
-  const lohn = () => {
-    navigate("/lohn");
-  };
-  const report = () => {
-    navigate("/report");
-  };
-
   return (
     <div className="header">
       <nav className="navbar navbar-expand-lg ">
@@ -52,14 +31,14 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   activeClassName="active"
                   to="/home"
                 >
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
                     // data-bs-toggle="dropdown"
@@ -69,32 +48,15 @@ function Header() {
                     Start
                   </a>
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   activeClassName="active"
                   to="/roaster"
                 >
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     role="button"
                     // data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -102,33 +64,15 @@ function Header() {
                     Roster
                   </a>
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  {/* <li><hr className="dropdown-divider dark"/></li> */}
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   activeClassName="active"
                   to="/employee"
                 >
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
                     // data-bs-toggle="dropdown"
@@ -137,33 +81,15 @@ function Header() {
                     Employee
                   </a>
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  {/* <li><hr className="dropdown-divider dark"/></li> */}
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   activeClassName="active"
                   to="/report"
                 >
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
                     // data-bs-toggle="dropdown"
@@ -172,33 +98,15 @@ function Header() {
                     Reports
                   </a>
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  {/* <li><hr className="dropdown-divider dark"/></li> */}
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   activeClassName="active"
                   to="/lohn"
                 >
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
                     // data-bs-toggle="dropdown"
@@ -207,111 +115,54 @@ function Header() {
                     Lohn
                   </a>
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  {/* <li><hr className="dropdown-divider dark"/></li> */}
-                  <li>
-                    <a className="dropdown-item dark" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  activeClassName="active"
+                  to="/vacation"
+                >
+                  <a className="nav-link" href="#">
+                    Urlaub / Krankenstand
+                  </a>
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" role="search">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item dropdown">
+                {/* <li className="nav-item">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Help
                   </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item dropdown">
+
+                </li> */}
+                {/* <li className="nav-item ">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <IoMdMail size={"20px"} />
+                    <IoMdMail size={18} />
                   </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item dropdown">
+
+                </li> */}
+                <li className="nav-item ">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link"
                     href="/"
                     role="button"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Hassan
+                    <FaUserCircle size={20} />
+                    &nbsp;&nbsp; Hassan
                   </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item dark" href="/">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
                 </li>
               </ul>
             </form>

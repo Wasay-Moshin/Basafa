@@ -68,9 +68,9 @@ function RoasterNav() {
           <div className="col-md-6">
             <div className="d-flex justify-content-end gap-2">
               <div className="pt-1">
-                <RxDotsVertical  size={20} color="rgb(121, 137, 154)"/>
+                {/* <RxDotsVertical  size={20} color="rgb(121, 137, 154)"/> */}
               </div>
-              <div className="btn-group">
+              {/* <div className="btn-group">
                 <button
                   type="button"
                   class="btn-today dropdown-toggle"
@@ -104,8 +104,8 @@ function RoasterNav() {
                     </a>
                   </li>
                 </ul>
-              </div>{" "}
-              <div className="btn-group">
+              </div>{" "} */}
+              {/* <div className="btn-group">
                 <button
                   type="button"
                   class="btn-today dropdown-toggle"
@@ -139,10 +139,10 @@ function RoasterNav() {
                     </a>
                   </li>
                 </ul>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <button className=" btn-today">Filter</button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -42,9 +42,9 @@ function Departmentbar() {
           <div>
             <div className="d-flex gap-2">
               <div className="">
-                <AiOutlineMenuFold size={19} />
+                {/* <AiOutlineMenuFold size={19} /> */}
               </div>
-              <h4>All departments</h4>
+              <h4>Mitarbeiter</h4>
             </div>
           </div>
           <div>

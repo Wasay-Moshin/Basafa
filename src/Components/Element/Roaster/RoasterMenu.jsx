@@ -34,7 +34,7 @@ function RoasterMenu() {
   return (
     <div className="roastermenu p-2 pt-3">
       <div className="p-2">
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
+        {/* <div class="btn-group" role="group" aria-label="Basic outlined example">
           <button type="button" class="group-btn">
             employee &nbsp;
           </button>
@@ -44,14 +44,14 @@ function RoasterMenu() {
           <button type="button" class="group-btn2">
             positions &nbsp;
           </button>
-        </div>
+        </div> */}
       </div>
-      <div className="d-flex justify-content-between">
-        <p>manage employee</p>
-        <p>
+      <div className="d-flex justify-content-between mb-3">
+        <p>Manage Employee</p>
+        {/* <p>
           <BsSortDownAlt size={12} />
           &nbsp; sort
-        </p>
+        </p> */}
       </div>
       <div className="menubody">
         <div>
@@ -97,24 +97,6 @@ function RoasterMenu() {
             </div>
           </div>
           <hr />
-          {/* <div
-            className={`hover-div ${isHovered2 ? "hovered" : ""}`}
-            onMouseEnter={handleMouseEnter2}
-            onMouseLeave={handleMouseLeave2}
-          >
-            <div className="namemenu">
-              <span>Hassan khalid</span>
-              <p>0Std 0Min / 0 Schichten</p>
-            </div>
-            <div>
-              {isHovered2 && <AiFillEdit size={20} />}
-              &nbsp;&nbsp;
-              {isHovered2 && <MdTableRows size={20} />}
-              &nbsp;&nbsp;
-              {isHovered2 && <BsFillChatFill size={20} />}
-            </div>
-          </div>
-          <hr /> */}
           <div
             className={`hover-div ${isHovered3 ? "hovered" : ""}`}
             onMouseEnter={handleMouseEnter3}

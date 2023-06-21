@@ -11,6 +11,7 @@ import Lohn from "./Pages/Lohn";
 import EmployeePersonalGroup from "./Pages/EmployeePersonalGroup";
 import Roaster from "./Pages/Roaster";
 import Report from "./Pages/Report";
+import Vacations from "./Pages/Vacations";
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/roaster" element={<Roaster />} />
             <Route path="/lohn" element={<Lohn />} />
             <Route path="/report" element={<Report />} />
+            <Route path="/vacation" element={<Vacations />} />
           </Routes>
         </Base>
       </BrowserRouter>
