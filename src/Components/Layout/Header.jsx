@@ -154,12 +154,7 @@ function Header() {
 
                 </li> */}
                 <li className="nav-item ">
-                  <a
-                    className="nav-link"
-                    href="/"
-                    role="button"
-                    aria-expanded="false"
-                  >
+                  <a className="nav-link">
                     <FaUserCircle size={20} />
                     &nbsp;&nbsp; Hassan
                   </a>
