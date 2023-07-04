@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineMenuFold } from "react-icons/ai";
+// import { AiOutlineMenuFold } from "react-icons/ai";
 import { HiPlusCircle } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
@@ -15,35 +15,14 @@ function Departmentbar() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
-  const [inputs, setInputs] = useState([{ start: "", end: "" }]);
-
-  const handleAdd = () => {
-    setInputs([...inputs, { start: "", end: "" }]);
-  };
-
-  const handleRemove = (index) => {
-    const newInputs = [...inputs];
-    newInputs.splice(index, 1);
-    setInputs(newInputs);
-  };
-
-  const handleInputChange = (index, event) => {
-    const { name, value } = event.target;
-    const newInputs = [...inputs];
-    newInputs[index][name] = value;
-    setInputs(newInputs);
-  };
-
+  
   return (
     <div className="departmentbar">
       <div className="container-fluid">
         <div className="all-dept pt-3">
           <div>
             <div className="d-flex gap-2">
-              <div className="">
-                {/* <AiOutlineMenuFold size={19} /> */}
-              </div>
+              <div className="">{/* <AiOutlineMenuFold size={19} /> */}</div>
               <h4>Mitarbeiter</h4>
             </div>
           </div>
@@ -90,7 +69,15 @@ function Departmentbar() {
                             <div className="row justify-content-center mt-4">
                               <div className="col-md-8">
                                 <div className="card p-4">
-                                  <h4>Persönliche Daten</h4>
+                                  <div className="heading">
+                                    {/* <img
+                                      src="assets/personal-data.png"
+                                      alt=""
+                                      width={33}
+                                    /> */}
+
+                                    <h4> Persönliche Daten</h4>
+                                  </div>
                                   <div className="row">
                                     <div className="col-md-6">
                                       <div>
@@ -127,6 +114,115 @@ function Departmentbar() {
                                       </div>
                                     </div>
                                     <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
+                                          Straße
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          // id="inputAddress"
+                                          placeholder="Straße"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label
+                                        for="inputZip"
+                                        className="form-label"
+                                      >
+                                        PLZ
+                                      </label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="inputZip"
+                                        placeholder="PLZ"
+                                      />
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label className="form-label">
+                                        Geburtsdatum
+                                      </label>
+                                      <div class="form-group">
+                                        <input
+                                          type="date"
+                                          className="form-control"
+                                          placeholder="Geburtsdatum"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
+                                          Geburtsort
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          // id="inputAddress"
+                                          placeholder="Geburtsort"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label className="form-label">
+                                        Familienstand
+                                      </label>
+                                      <select
+                                        class="form-select"
+                                        name="marital_status"
+                                        id="marital_status"
+                                      >
+                                        <option value="">Familienstand</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">
+                                          Separated
+                                        </option>
+                                        <option value="Divorced">
+                                          Divorced
+                                        </option>
+                                      </select>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
+                                          Staatsangehörigkeit
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Staatsangehörigkeit"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
+                                          Konfession
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="konfession"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
+                                          Arbeitsbeginn
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Arbeitsbeginn"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
                                       <div className="email-input">
                                         <label
                                           for="exampleInputEmail"
@@ -145,31 +241,7 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
-                                    <div className="col-md-6">
-                                      <div className="password">
-                                        <label
-                                          for="exampleInputPassword"
-                                          className="form-label"
-                                        >
-                                          Password*
-                                        </label>
-                                        <div
-                                          className="input-group"
-                                          id="how_hide_password"
-                                        >
-                                          <input
-                                            name="password"
-                                            type="password"
-                                            className="form-control"
-                                            id="password"
-                                            placeholder="Password"
-                                            autoComplete="off"
-                                          />
-                                          {/* <a href="javascript:;" class="input-group-text bg-transparent"><i className="fa fa-eye-slash"></i></a> */}
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div className="col-md-6">
+                                    {/* <div className="col-md-6">
                                       <label className="form-label">
                                         Ausstellungsdatum des medizinischen
                                         Tauglichkeitszeugnisses:
@@ -180,8 +252,8 @@ function Departmentbar() {
                                           className="form-control"
                                         />
                                       </div>
-                                    </div>
-                                    <div className="col-md-6">
+                                    </div> */}
+                                    {/* <div className="col-md-6">
                                       <label className="form-label">
                                         Ablaufdatum des medizinischen
                                         Fitnesszertifikats:
@@ -192,19 +264,8 @@ function Departmentbar() {
                                           className="form-control"
                                         />
                                       </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                      <label className="form-label">
-                                        Geburtsdatum
-                                      </label>
-                                      <div class="form-group">
-                                        <input
-                                          type="date"
-                                          className="form-control"
-                                          placeholder="Geburtsdatum"
-                                        />
-                                      </div>
-                                    </div>
+                                    </div> */}
+
                                     <div className="col-md-6">
                                       <label className="form-label">
                                         Telefonnummer des Laufwerks
@@ -217,7 +278,7 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
-                                    <div className="col-md-4">
+                                    {/* <div className="col-md-4">
                                       <label className="form-label">
                                         Start Bahnhof
                                       </label>
@@ -240,8 +301,8 @@ function Departmentbar() {
                                           placeholder="Betreten Sie den Bahnhof End"
                                         />
                                       </div>
-                                    </div>
-                                    <div className="col-md-4">
+                                    </div> */}
+                                    {/* <div className="col-md-4">
                                       <div style={{ marginTop: "30px" }}>
                                         <button
                                           className="btn btn-primary"
@@ -250,8 +311,8 @@ function Departmentbar() {
                                           Weitere hinzufügen
                                         </button>
                                       </div>
-                                    </div>
-                                    {inputs.map((input, index) => (
+                                    </div> */}
+                                    {/* {inputs.map((input, index) => (
                                       <div className="row" key={index}>
                                         <div className="col-md-4">
                                           <label className="form-label">
@@ -298,21 +359,9 @@ function Departmentbar() {
                                           </div>
                                         </div>
                                       </div>
-                                    ))}
-                                    <div className="col-md-6">
-                                      <div class="form-group">
-                                        <label className="form-label">
-                                          Straße
-                                        </label>
-                                        <input
-                                          type="text"
-                                          class="form-control"
-                                          id="inputAddress"
-                                          placeholder="Straße"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div className="col-md-6">
+                                    ))} */}
+
+                                    {/* <div className="col-md-6">
                                       <div class="form-group">
                                         <label
                                           for="inputAddress"
@@ -327,22 +376,9 @@ function Departmentbar() {
                                           placeholder="Hausnummer"
                                         />
                                       </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                      <label
-                                        for="inputZip"
-                                        className="form-label"
-                                      >
-                                        PLZ
-                                      </label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        id="inputZip"
-                                        placeholder="PLZ"
-                                      />
-                                    </div>
-                                    <div className="col-md-6">
+                                    </div> */}
+
+                                    {/* <div className="col-md-6">
                                       <label
                                         for="inputCity"
                                         className="form-label"
@@ -355,8 +391,9 @@ function Departmentbar() {
                                         id="inputCity"
                                         placeholder=" Stadt"
                                       />
-                                    </div>
-                                    <div className="col-md-6">
+                                    </div> */}
+
+                                    {/* <div className="col-md-6">
                                       <label
                                         for="inputAddress"
                                         className="form-label"
@@ -369,8 +406,9 @@ function Departmentbar() {
                                         id="inputAddress"
                                         placeholder="Bundesland"
                                       />
-                                    </div>
-                                    <div className="col-md-6">
+                                    </div> */}
+
+                                    {/* <div className="col-md-6">
                                       <label
                                         for="inputAddress"
                                         className="form-label"
@@ -383,8 +421,9 @@ function Departmentbar() {
                                         id="inputAddress"
                                         placeholder="Land"
                                       />
-                                    </div>
-                                    <div className="col-md-12">
+                                    </div> */}
+
+                                    {/* <div className="col-md-12">
                                       <label
                                         for="exampleFormControlTextarea1"
                                         class="form-label"
@@ -396,64 +435,20 @@ function Departmentbar() {
                                         id="exampleFormControlTextarea1"
                                         rows="3"
                                       ></textarea>
-                                    </div>
-                                    <div className="d-flex gap-2">
+                                    </div> */}
+
+                                    {/* <div className="d-flex gap-2">
                                       <button className="btn btn-primary">
                                         Speichern
                                       </button>
                                       <button className="btn btn-primary">
                                         Stornieren
                                       </button>
-                                    </div>
+                                    </div> */}
                                   </div>
-                                  {/* <div className="row mt-3">
-                                    <div className="col-md-6">
-                                      <div>
-                                        <label
-                                          for="exampleInputEmail"
-                                          className="form-label "
-                                        >
-                                          Landesvorwahl
-                                        </label>
-                                        <input
-                                          name="fname"
-                                          type="fname"
-                                          className="form-control"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                      <div>
-                                        <label
-                                          for="exampleInputEmail"
-                                          className="form-label "
-                                        >
-                                          Handy
-                                        </label>
-                                        <input
-                                          name="fname"
-                                          type="fname"
-                                          className="form-control"
-                                        />
-                                      </div>
-                                    </div>
-                                  </div> */}
-                                  {/* <div className="form-check mt-3">
-                                    <input
-                                      class="form-check-input"
-                                      type="checkbox"
-                                      id="exampleCheckbox"
-                                    />
-                                    <label
-                                      className="form-check-label"
-                                      for="exampleCheckbox"
-                                    >
-                                      Kontaktdaten teilen
-                                    </label>
-                                  </div> */}
                                 </div>
-                                {/* <div className="card p-4 mt-4">
-                                  <h4>Persönliche Informationen</h4>
+                                <div className="card p-4 mt-4">
+                                  <h4>Bankverbindung</h4>
                                   <div className="row">
                                     <div className="col-md-4">
                                       <div>
@@ -461,12 +456,27 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label "
                                         >
-                                          Soz.-Vers. Nr.
+                                          kreditinstitute
                                         </label>
                                         <input
-                                          name="fname"
-                                          type="fname"
+                                          type="text"
                                           className="form-control"
+                                          placeholder="kreditinstitute"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          IBAN
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="IBAN"
                                         />
                                       </div>
                                     </div>
@@ -476,12 +486,82 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label "
                                         >
-                                          Geschlecht
+                                          BIC
                                         </label>
                                         <input
-                                          name="fname"
-                                          type="fname"
+                                          type="text"
                                           className="form-control"
+                                          placeholder="BIC"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="card p-4 mt-4">
+                                  <h4>Sozialversicherung</h4>
+                                  <div className="row">
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          Rentenversicherungsnummer
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="Rentenversicherungsnummer"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          Krankenkasse
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="Krankenkasse"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="card p-4 mt-4">
+                                  <h4>Steuer</h4>
+                                  <div className="row">
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          Steuerkiassc
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="Steuerkiassc"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          Kinderferibetrage
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="Kinderferibetrage"
                                         />
                                       </div>
                                     </div>
@@ -491,50 +571,21 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label "
                                         >
-                                          Geburtstag
+                                          Steuer ID Nummer
                                         </label>
                                         <input
-                                          name="fname"
-                                          type="fname"
+                                          type="text"
                                           className="form-control"
+                                          placeholder="Steuer ID Nummer"
                                         />
                                       </div>
                                     </div>
                                   </div>
-                                </div> */}
-                                {/* <div className="card p-4">
-                                  <h4>Kontaktdaten</h4>
-                                  <div className="row">
-                                    <div className="col-md-6">
-                                      <div>
-                                        <label
-                                          for="exampleInputEmail"
-                                          className="form-label "
-                                        >
-                                          Straße
-                                        </label>
-                                        <input
-                                          name="fname"
-                                          type="fname"
-                                          className="form-control"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                      <div>
-                                        <label
-                                          for="exampleInputEmail"
-                                          className="form-label "
-                                        >
-                                          Postleitzahl
-                                        </label>
-                                        <input
-                                          name="fname"
-                                          type="fname"
-                                          className="form-control"
-                                        />
-                                      </div>
-                                    </div>
+                                </div>
+                                <div className="card p-4 mt-4">
+                                  <h4>Ausrüstung</h4>
+                                  <div className="mt-3">
+                                    <h5> Praktisch (Handy)</h5>
                                   </div>
                                   <div className="row">
                                     <div className="col-md-6">
@@ -543,12 +594,26 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label "
                                         >
-                                          Straße 2
+                                          Datum der Übergabe an den Mitarbeiter
                                         </label>
                                         <input
-                                          name="fname"
-                                          type="fname"
+                                          type="date"
                                           className="form-control"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          IMEA No
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="IMEA No"
                                         />
                                       </div>
                                     </div>
@@ -558,75 +623,143 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label "
                                         >
-                                          Stadt
+                                          SIM-Karten-Nr
                                         </label>
                                         <input
-                                          name="fname"
-                                          type="fname"
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="SIM-Karten-Nr"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label className="form-label">
+                                        Telefonnummer des Laufwerks
+                                      </label>
+                                      <div class="form-group">
+                                        <input
+                                          type="contact"
+                                          className="form-control"
+                                          placeholder="+4900000000"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label className="form-label">
+                                        Name des Netzanbieters
+                                      </label>
+                                      <div class="form-group">
+                                        <input
+                                          type="contact"
+                                          className="form-control"
+                                          placeholder="Name des Netzanbieters"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-12">
+                                      <label
+                                        for="exampleFormControlTextarea1"
+                                        class="form-label"
+                                      >
+                                        Marke (Freitext)
+                                      </label>
+                                      <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  <div className="row">
+                                    <div className="mt-3">
+                                      <h5>Tablette</h5>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          Datum der Übergabe an den Mitarbeiter
+                                        </label>
+                                        <input
+                                          type="date"
                                           className="form-control"
                                         />
                                       </div>
                                     </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          IMEA No
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="IMEA No"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          SIM-Karten-Nr
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="SIM-Karten-Nr"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label className="form-label">
+                                        Name des Netzanbieters
+                                      </label>
+                                      <div class="form-group">
+                                        <input
+                                          type="contact"
+                                          className="form-control"
+                                          placeholder="Name des Netzanbieters"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-12">
+                                      <label
+                                        for="exampleFormControlTextarea1"
+                                        class="form-label"
+                                      >
+                                        Marke (Freitext)
+                                      </label>
+                                      <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                      ></textarea>
+                                    </div>
                                   </div>
-                                </div> */}
-                                {/* <div className="card p-4 mt-4">
-                                  <h4>Lohn</h4>
-                                  <hr />
-                                  <div className="email-input mt-3">
-                                    <label
-                                      for="exampleInputEmail"
-                                      className="form-label"
-                                    >
-                                      Datum des Arbeitsbeginns
-                                    </label>
-                                    <input
-                                      name="email"
-                                      type="email"
-                                      className="form-control"
-                                      id="exampleInputEmail"
-                                      aria-describedby="emailHelp"
-                                      autoComplete="off"
-                                    />
+                                  <div className="row">
+                                    <div className="d-flex gap-4 mt-3">
+                                      <div>
+                                        <h5> DB21-Schlüssel </h5>
+                                      </div>
+                                      <div className="form-check">
+                                        <input
+                                          className="form-check-input"
+                                          type="checkbox"
+                                          defaultValue
+                                          id="flexCheckDefault"
+                                        />
+                                      </div>
+                                    </div>
                                   </div>
-                                </div> */}
-                                {/* <div className="card p-4 mt-4">
-                                  <h4>Abteilungen*</h4>
-                                  <hr />
-                                  <div className="d-flex justify-content-between">
-                                    <p>
-                                      Verwenden Sie Abteilungen, um Ihren
-                                      Mitarbeiter in einem bestimmten Standort
-                                      oder Bereich in Ihrem Unternehmen zu
-                                      platzieren.
-                                    </p>
-                                    <button className="btn" disabled>
-                                      Bearbeiten
-                                    </button>
-                                  </div>
-                                  <hr />
-                                  <div>
-                                    <h6>Name</h6>
-                                    <hr />
-                                    <p>Email</p>
-                                  </div>
-                                </div> */}
-                                {/* <div className="card p-4 mt-4">
-                                  <h4>Personalgruppen</h4>
-                                  <hr />
-                                  <div className="d-flex justify-content-between">
-                                    <p>
-                                      Verwenden Sie Mitarbeitergruppen, um Ihren
-                                      Mitarbeitern bestimmte Rollen zuzuweisen,
-                                      die sie im Unternehmen übernehmen.
-                                    </p>
-                                    <button
-                                      type="button"
-                                      className="btn btn-outline-secondary"
-                                    >
-                                      Hinzufügen
-                                    </button>
-                                  </div>
-                                </div> */}
+                                </div>
                               </div>
                             </div>
                           </div>
