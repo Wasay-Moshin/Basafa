@@ -7,6 +7,24 @@ import Hero from "../Element/employee/Hero";
 
 function Departmentbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [baureihenkenntnisse, setBaureihenkenntnisse] = useState([""]);
+  const [ortskenntnisse, setOrtskenntnisse] = useState([""]);
+  const [certifications, setCertifications] = useState({
+    RFU: "",
+    Tauglichkeit: "",
+    Simulator: "",
+    Überwachungsfahrt: "",
+    Sprachkurs: "",
+    BahnCard: "",
+  });
+  const [inputValue, setInputValue] = useState("");
+
+  const handleGermanNumber = (e) => {
+    const inputPhoneNumber = e.target.value;
+    const formattedPhoneNumber = inputPhoneNumber.replace(/[^\d+]/g, "");
+
+    setInputValue(formattedPhoneNumber);
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -15,14 +33,90 @@ function Departmentbar() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-  
+  const [psas, setPSAs] = useState([]);
+
+  const handleAddPSA = () => {
+    setPSAs([...psas, {}]);
+  };
+
+  const handleDeletePSA = (index) => {
+    const updatedPSAs = [...psas];
+    updatedPSAs.splice(index, 1);
+    setPSAs(updatedPSAs);
+  };
+
+  const handleInputChange = (index, field, value) => {
+    const updatedPSAs = [...psas];
+    updatedPSAs[index][field] = value;
+    setPSAs(updatedPSAs);
+  };
+
+  const handleDateChange = (event, certification) => {
+    setCertifications({
+      ...certifications,
+      [certification]: event.target.value,
+    });
+  };
+
+  const getExpirationStatus = (certification) => {
+    const expirationDate = certifications[certification];
+
+    if (!expirationDate) return null;
+
+    const currentDate = new Date();
+    const parsedExpirationDate = new Date(expirationDate);
+
+    const daysUntilExpiration = Math.floor(
+      (parsedExpirationDate - currentDate) / (1000 * 60 * 60 * 24)
+    );
+
+    if (daysUntilExpiration <= 0) {
+      return "red";
+    } else if (daysUntilExpiration <= 90) {
+      return "orange";
+    }
+    return null;
+  };
+
+  const handleInputFiled = (index, field, event) => {
+    if (field === "baureihenkenntnisse") {
+      const updatedBaureihenkenntnisse = [...baureihenkenntnisse];
+      updatedBaureihenkenntnisse[index] = event.target.value;
+      setBaureihenkenntnisse(updatedBaureihenkenntnisse);
+    } else if (field === "ortskenntnisse") {
+      const updatedOrtskenntnisse = [...ortskenntnisse];
+      updatedOrtskenntnisse[index] = event.target.value;
+      setOrtskenntnisse(updatedOrtskenntnisse);
+    }
+  };
+
+  const handleAddField = (field) => {
+    if (field === "baureihenkenntnisse") {
+      setBaureihenkenntnisse([...baureihenkenntnisse, ""]);
+    } else if (field === "ortskenntnisse") {
+      setOrtskenntnisse([...ortskenntnisse, ""]);
+    }
+  };
+
+  const handleRemoveField = (index, field) => {
+    if (field === "baureihenkenntnisse") {
+      setBaureihenkenntnisse((prevBaureihenkenntnisse) =>
+        prevBaureihenkenntnisse.filter((_, i) => i !== index)
+      );
+    } else if (field === "ortskenntnisse") {
+      setOrtskenntnisse((prevOrtskenntnisse) =>
+        prevOrtskenntnisse.filter((_, i) => i !== index)
+      );
+    }
+  };
+
   return (
     <div className="departmentbar">
       <div className="container-fluid">
         <div className="all-dept pt-3">
           <div>
             <div className="d-flex gap-2">
-              <div className="">{/* <AiOutlineMenuFold size={19} /> */}</div>
+              {/* <div className=""><AiOutlineMenuFold size={19} /></div> */}
               <h4>Mitarbeiter</h4>
             </div>
           </div>
@@ -68,14 +162,9 @@ function Departmentbar() {
                           <div className="container-fluid">
                             <div className="row justify-content-center mt-4">
                               <div className="col-md-8">
+                                {/* personal Data */}
                                 <div className="card p-4">
                                   <div className="heading">
-                                    {/* <img
-                                      src="assets/personal-data.png"
-                                      alt=""
-                                      width={33}
-                                    /> */}
-
                                     <h4> Persönliche Daten</h4>
                                   </div>
                                   <div className="row">
@@ -241,212 +330,23 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
-                                    {/* <div className="col-md-6">
-                                      <label className="form-label">
-                                        Ausstellungsdatum des medizinischen
-                                        Tauglichkeitszeugnisses:
-                                      </label>
-                                      <div class="form-group">
-                                        <input
-                                          type="date"
-                                          className="form-control"
-                                        />
-                                      </div>
-                                    </div> */}
-                                    {/* <div className="col-md-6">
-                                      <label className="form-label">
-                                        Ablaufdatum des medizinischen
-                                        Fitnesszertifikats:
-                                      </label>
-                                      <div class="form-group">
-                                        <input
-                                          type="date"
-                                          className="form-control"
-                                        />
-                                      </div>
-                                    </div> */}
-
                                     <div className="col-md-6">
                                       <label className="form-label">
                                         Telefonnummer des Laufwerks
                                       </label>
                                       <div class="form-group">
                                         <input
-                                          type="contact"
+                                          type="text"
+                                          value={inputValue}
+                                          onChange={handleGermanNumber}
                                           className="form-control"
                                           placeholder="+4900000000"
                                         />
                                       </div>
                                     </div>
-                                    {/* <div className="col-md-4">
-                                      <label className="form-label">
-                                        Start Bahnhof
-                                      </label>
-                                      <div class="form-group">
-                                        <input
-                                          type="text"
-                                          className="form-control"
-                                          placeholder="Geben Sie den Startbahnhof ein"
-                                        />
-                                      </div>
-                                    </div>
-                                    <div className="col-md-4">
-                                      <label className="form-label">
-                                        Endbahnhof
-                                      </label>
-                                      <div class="form-group">
-                                        <input
-                                          type="text"
-                                          className="form-control"
-                                          placeholder="Betreten Sie den Bahnhof End"
-                                        />
-                                      </div>
-                                    </div> */}
-                                    {/* <div className="col-md-4">
-                                      <div style={{ marginTop: "30px" }}>
-                                        <button
-                                          className="btn btn-primary"
-                                          onClick={handleAdd}
-                                        >
-                                          Weitere hinzufügen
-                                        </button>
-                                      </div>
-                                    </div> */}
-                                    {/* {inputs.map((input, index) => (
-                                      <div className="row" key={index}>
-                                        <div className="col-md-4">
-                                          <label className="form-label">
-                                            Start Bahnhof
-                                          </label>
-                                          <div className="form-group">
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              name="start"
-                                              value={input.start}
-                                              onChange={(event) =>
-                                                handleInputChange(index, event)
-                                              }
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-md-4">
-                                          <label className="form-label">
-                                            Endbahnhof
-                                          </label>
-                                          <div className="form-group">
-                                            <input
-                                              type="text"
-                                              className="form-control"
-                                              name="end"
-                                              value={input.end}
-                                              onChange={(event) =>
-                                                handleInputChange(index, event)
-                                              }
-                                            />
-                                          </div>
-                                        </div>
-                                        <div className="col-md-4">
-                                          <div style={{ marginTop: "30px" }}>
-                                            <button
-                                              className="btn btn-danger"
-                                              onClick={() =>
-                                                handleRemove(index)
-                                              }
-                                            >
-                                              <RxCross2 />
-                                            </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    ))} */}
-
-                                    {/* <div className="col-md-6">
-                                      <div class="form-group">
-                                        <label
-                                          for="inputAddress"
-                                          className="form-label"
-                                        >
-                                          Hausnummer
-                                        </label>
-                                        <input
-                                          type="text"
-                                          class="form-control"
-                                          id="inputAddress"
-                                          placeholder="Hausnummer"
-                                        />
-                                      </div>
-                                    </div> */}
-
-                                    {/* <div className="col-md-6">
-                                      <label
-                                        for="inputCity"
-                                        className="form-label"
-                                      >
-                                        Stadt
-                                      </label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        id="inputCity"
-                                        placeholder=" Stadt"
-                                      />
-                                    </div> */}
-
-                                    {/* <div className="col-md-6">
-                                      <label
-                                        for="inputAddress"
-                                        className="form-label"
-                                      >
-                                        Bundesland
-                                      </label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        id="inputAddress"
-                                        placeholder="Bundesland"
-                                      />
-                                    </div> */}
-
-                                    {/* <div className="col-md-6">
-                                      <label
-                                        for="inputAddress"
-                                        className="form-label"
-                                      >
-                                        Land
-                                      </label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        id="inputAddress"
-                                        placeholder="Land"
-                                      />
-                                    </div> */}
-
-                                    {/* <div className="col-md-12">
-                                      <label
-                                        for="exampleFormControlTextarea1"
-                                        class="form-label"
-                                      >
-                                        Werkzeuge (falls erforderlich)
-                                      </label>
-                                      <textarea
-                                        class="form-control"
-                                        id="exampleFormControlTextarea1"
-                                        rows="3"
-                                      ></textarea>
-                                    </div> */}
-
-                                    {/* <div className="d-flex gap-2">
-                                      <button className="btn btn-primary">
-                                        Speichern
-                                      </button>
-                                      <button className="btn btn-primary">
-                                        Stornieren
-                                      </button>
-                                    </div> */}
                                   </div>
                                 </div>
+                                {/* Bank Detail */}
                                 <div className="card p-4 mt-4">
                                   <h4>Bankverbindung</h4>
                                   <div className="row">
@@ -497,6 +397,7 @@ function Departmentbar() {
                                     </div>
                                   </div>
                                 </div>
+                                {/* Social Insurance */}
                                 <div className="card p-4 mt-4">
                                   <h4>Sozialversicherung</h4>
                                   <div className="row">
@@ -532,6 +433,7 @@ function Departmentbar() {
                                     </div>
                                   </div>
                                 </div>
+                                {/* Tax */}
                                 <div className="card p-4 mt-4">
                                   <h4>Steuer</h4>
                                   <div className="row">
@@ -582,6 +484,286 @@ function Departmentbar() {
                                     </div>
                                   </div>
                                 </div>
+                                {/* Skills and Certifications */}
+                                <div className="card p-4 mt-4">
+                                  <h4>
+                                    Gültigkeit von Fähigkeiten und
+                                    Zertifizierungen
+                                  </h4>
+                                  <p>
+                                    Geben Sie das Ablaufdatum Ihrer
+                                    Zertifizierung an
+                                  </p>
+                                  <div className="row">
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          htmlFor="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          RFU (Regelmäßigefortbildung)
+                                        </label>
+                                        <input
+                                          type="date"
+                                          className={`form-control ${getExpirationStatus(
+                                            "RFU"
+                                          )}`}
+                                          value={certifications.RFU}
+                                          onChange={(event) =>
+                                            handleDateChange(event, "RFU")
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          htmlFor="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          Tauglichkeit
+                                        </label>
+                                        <input
+                                          type="date"
+                                          className={`form-control ${getExpirationStatus(
+                                            "Tauglichkeit"
+                                          )}`}
+                                          value={certifications.Tauglichkeit}
+                                          onChange={(event) =>
+                                            handleDateChange(
+                                              event,
+                                              "Tauglichkeit"
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          htmlFor="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          Simulator
+                                        </label>
+                                        <input
+                                          type="date"
+                                          className={`form-control ${getExpirationStatus(
+                                            "Simulator"
+                                          )}`}
+                                          value={certifications.Simulator}
+                                          onChange={(event) =>
+                                            handleDateChange(event, "Simulator")
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          htmlFor="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          Überwachungsfahrt:
+                                        </label>
+                                        <input
+                                          type="date"
+                                          className={`form-control ${getExpirationStatus(
+                                            "Überwachungsfahrt"
+                                          )}`}
+                                          value={
+                                            certifications.Überwachungsfahrt
+                                          }
+                                          onChange={(event) =>
+                                            handleDateChange(
+                                              event,
+                                              "Überwachungsfahrt"
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          htmlFor="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          Sprachkurs (Deutsch)
+                                        </label>
+                                        <input
+                                          type="date"
+                                          className={`form-control ${getExpirationStatus(
+                                            "Sprachkurs"
+                                          )}`}
+                                          value={certifications.Sprachkurs}
+                                          onChange={(event) =>
+                                            handleDateChange(
+                                              event,
+                                              "Sprachkurs"
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-4">
+                                      <div>
+                                        <label
+                                          htmlFor="exampleInputEmail"
+                                          className="form-label"
+                                        >
+                                          BahnCard
+                                        </label>
+                                        <input
+                                          type="date"
+                                          className={`form-control ${getExpirationStatus(
+                                            "BahnCard"
+                                          )}`}
+                                          value={certifications.BahnCard}
+                                          onChange={(event) =>
+                                            handleDateChange(event, "BahnCard")
+                                          }
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="row mt-3">
+                                    <h5>Baureihenkenntnisse</h5>
+                                    <div>
+                                      <div>
+                                        {baureihenkenntnisse.map(
+                                          (value, index) => (
+                                            <div
+                                              key={index}
+                                              className="input-group"
+                                            >
+                                              <div className="col-md-4">
+                                                <input
+                                                  type="text"
+                                                  className="form-control"
+                                                  value={value}
+                                                  onChange={(event) =>
+                                                    handleInputFiled(
+                                                      index,
+                                                      "baureihenkenntnisse",
+                                                      event
+                                                    )
+                                                  }
+                                                />
+                                              </div>
+                                              &nbsp; &nbsp; &nbsp; &nbsp;
+                                              <div className="col-md-2">
+                                                {index ===
+                                                  baureihenkenntnisse.length -
+                                                    1 && (
+                                                  <button
+                                                    type="button"
+                                                    className="btn btn-danger"
+                                                    onClick={() =>
+                                                      handleRemoveField(
+                                                        index,
+                                                        "baureihenkenntnisse"
+                                                      )
+                                                    }
+                                                  >
+                                                    -
+                                                  </button>
+                                                )}
+                                              </div>
+                                            </div>
+                                          )
+                                        )}
+                                        <button
+                                          type="button"
+                                          className="btn btn-primary"
+                                          onClick={() =>
+                                            handleAddField(
+                                              "baureihenkenntnisse"
+                                            )
+                                          }
+                                        >
+                                          +
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="row mt-4">
+                                    <h5>Ortskenntnisse</h5>
+
+                                    <div>
+                                      {ortskenntnisse.map((value, index) => (
+                                        <div
+                                          key={index}
+                                          className="input-group"
+                                        >
+                                          <div className="col-md-4">
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              value={value}
+                                              onChange={(event) =>
+                                                handleInputFiled(
+                                                  index,
+                                                  "ortskenntnisse",
+                                                  event
+                                                )
+                                              }
+                                            />
+                                          </div>
+                                          &nbsp; &nbsp; &nbsp; &nbsp;
+                                          <div className="col-md-2">
+                                            {index ===
+                                              ortskenntnisse.length - 1 && (
+                                              <button
+                                                type="button"
+                                                className="btn btn-danger"
+                                                onClick={() =>
+                                                  handleRemoveField(
+                                                    index,
+                                                    "ortskenntnisse"
+                                                  )
+                                                }
+                                              >
+                                                -
+                                              </button>
+                                            )}
+                                          </div>
+                                        </div>
+                                      ))}
+                                      <button
+                                        type="button"
+                                        className="btn btn-primary"
+                                        onClick={() =>
+                                          handleAddField("ortskenntnisse")
+                                        }
+                                      >
+                                        +
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div className="row mt-5">
+                                    <h4>Zusatsbescheinigung</h4>
+                                    <div className="col-md-6">
+                                      <label htmlFor="" className="form-label">
+                                        Freitextfeld
+                                      </label>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                      />
+                                    </div>
+                                    <div className="col-md-6">
+                                      <label htmlFor="" className="form-label">
+                                        Datum
+                                      </label>
+                                      <input
+                                        type="date"
+                                        className="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                {/* Equipments */}
                                 <div className="card p-4 mt-4">
                                   <h4>Ausrüstung</h4>
                                   <div className="mt-3">
@@ -639,6 +821,8 @@ function Departmentbar() {
                                       <div class="form-group">
                                         <input
                                           type="contact"
+                                          value={inputValue}
+                                          onChange={handleGermanNumber}
                                           className="form-control"
                                           placeholder="+4900000000"
                                         />
@@ -744,11 +928,11 @@ function Departmentbar() {
                                       ></textarea>
                                     </div>
                                   </div>
-                                  <div className="row">
-                                    <div className="d-flex gap-4 mt-3">
-                                      <div>
-                                        <h5> DB21-Schlüssel </h5>
-                                      </div>
+                                  <div className="row mt-3">
+                                    <div className="col-md-3">
+                                      <h6> DB21-Schlüssel </h6>
+                                    </div>
+                                    <div className="col-md-1">
                                       <div className="form-check">
                                         <input
                                           className="form-check-input"
@@ -758,6 +942,164 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
+                                  </div>
+                                  <div className="row mt-4">
+                                    <div className="col-md-3">
+                                      <h6> Vierkant </h6>
+                                    </div>
+                                    <div className="col-md-1">
+                                      <div className="form-check">
+                                        <input
+                                          className="form-check-input"
+                                          type="checkbox"
+                                          defaultValue
+                                          id="flexCheckDefault"
+                                        />
+                                      </div>
+                                    </div>
+
+                                    <div className="col-md-3">
+                                      <input
+                                        type="date"
+                                        className="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="row mt-2">
+                                    <div className="col-md-3">
+                                      <h6> Kreuzbatschlüssel </h6>
+                                    </div>
+                                    <div className="col-md-1">
+                                      <div className="form-check">
+                                        <input
+                                          className="form-check-input"
+                                          type="checkbox"
+                                          defaultValue
+                                          id="flexCheckDefault"
+                                        />
+                                      </div>
+                                    </div>
+
+                                    <div className="col-md-3">
+                                      <input
+                                        type="date"
+                                        className="form-control"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="mt-3">
+                                    <button
+                                      onClick={handleAddPSA}
+                                      className="spe"
+                                    >
+                                      Add PSA
+                                    </button>
+                                    {psas.map((psa, index) => (
+                                      <div key={index} className="row">
+                                        {/* <h5>PSA</h5> */}
+                                        <div className="mt-3"></div>
+                                        <div className="col-md-6">
+                                          <div>
+                                            <label
+                                              htmlFor="exampleInputText"
+                                              className="form-label"
+                                            >
+                                              Freitextfeld (um Jacke usw. zu
+                                              schreiben)
+                                            </label>
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              value={psa.text || ""}
+                                              onChange={(e) =>
+                                                handleInputChange(
+                                                  index,
+                                                  "text",
+                                                  e.target.value
+                                                )
+                                              }
+                                            />
+                                          </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                          <div>
+                                            <label
+                                              htmlFor="exampleInputSize"
+                                              className="form-label"
+                                            >
+                                              Größe
+                                            </label>
+                                            <input
+                                              type="number"
+                                              className="form-control"
+                                              step="1"
+                                              value={psa.size || ""}
+                                              onChange={(e) =>
+                                                handleInputChange(
+                                                  index,
+                                                  "size",
+                                                  e.target.value
+                                                )
+                                              }
+                                            />
+                                          </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                          <div>
+                                            <label
+                                              htmlFor="exampleInputQuantity"
+                                              className="form-label"
+                                            >
+                                              Anzahl der angegebenen Artikel
+                                            </label>
+                                            <input
+                                              type="number"
+                                              className="form-control"
+                                              value={psa.quantity || ""}
+                                              onChange={(e) =>
+                                                handleInputChange(
+                                                  index,
+                                                  "quantity",
+                                                  e.target.value
+                                                )
+                                              }
+                                            />
+                                          </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                          <div>
+                                            <label
+                                              htmlFor="exampleInputDeliveryDate"
+                                              className="form-label"
+                                            >
+                                              Liefertermin
+                                            </label>
+                                            <input
+                                              type="date"
+                                              className="form-control"
+                                              value={psa.deliveryDate || ""}
+                                              onChange={(e) =>
+                                                handleInputChange(
+                                                  index,
+                                                  "deliveryDate",
+                                                  e.target.value
+                                                )
+                                              }
+                                            />
+                                          </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                          <button
+                                            onClick={() =>
+                                              handleDeletePSA(index)
+                                            }
+                                            className="btn btn-danger"
+                                          >
+                                            Delete
+                                          </button>
+                                        </div>
+                                      </div>
+                                    ))}
                                   </div>
                                 </div>
                               </div>
