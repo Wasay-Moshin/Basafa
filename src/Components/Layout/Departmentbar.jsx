@@ -205,6 +205,19 @@ function Departmentbar() {
                                     <div className="col-md-6">
                                       <div class="form-group">
                                         <label className="form-label">
+                                          Stadt
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          // id="inputAddress"
+                                          placeholder="Stadt"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
                                           Straße
                                         </label>
                                         <input
@@ -942,8 +955,14 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
+                                    <div className="col-md-3">
+                                      <input
+                                        type="date"
+                                        className="form-control"
+                                      />
+                                    </div>
                                   </div>
-                                  <div className="row mt-4">
+                                  <div className="row ">
                                     <div className="col-md-3">
                                       <h6> Vierkant </h6>
                                     </div>
@@ -965,7 +984,7 @@ function Departmentbar() {
                                       />
                                     </div>
                                   </div>
-                                  <div className="row mt-2">
+                                  <div className="row ">
                                     <div className="col-md-3">
                                       <h6> Kreuzbatschlüssel </h6>
                                     </div>
@@ -1101,6 +1120,49 @@ function Departmentbar() {
                                       </div>
                                     ))}
                                   </div>
+                                  <div className="row mt-2">
+                                    <div className="col-md-12">
+                                      <label
+                                        for="exampleFormControlTextarea1"
+                                        class="form-label"
+                                      >
+                                        Sonstige
+                                      </label>
+                                      <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                      ></textarea>
+                                    </div>
+                                    <div className="col-md-12">
+                                      <label
+                                        for="exampleFormControlTextarea1"
+                                        class="form-label"
+                                      >
+                                        Jährliche Anmerkung
+                                      </label>
+                                      <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  {/* <div className="row mt-2">
+                                    <div className="col-md-6">
+                                      <label
+                                        for="exampleFormControlTextarea1"
+                                        class="form-label"
+                                      >
+                                        Sonstige
+                                      </label>
+                                      <textarea
+                                        class="form-control"
+                                        id="exampleFormControlTextarea1"
+                                        rows="3"
+                                      ></textarea>
+                                    </div>
+                                  </div> */}
                                 </div>
                               </div>
                             </div>
