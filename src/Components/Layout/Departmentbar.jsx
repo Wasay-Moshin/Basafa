@@ -202,19 +202,7 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
-                                    <div className="col-md-6">
-                                      <div class="form-group">
-                                        <label className="form-label">
-                                          Stadt
-                                        </label>
-                                        <input
-                                          type="text"
-                                          class="form-control"
-                                          // id="inputAddress"
-                                          placeholder="Stadt"
-                                        />
-                                      </div>
-                                    </div>
+                               
                                     <div className="col-md-6">
                                       <div class="form-group">
                                         <label className="form-label">
@@ -241,6 +229,19 @@ function Departmentbar() {
                                         id="inputZip"
                                         placeholder="PLZ"
                                       />
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div class="form-group">
+                                        <label className="form-label">
+                                          Stadt
+                                        </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          // id="inputAddress"
+                                          placeholder="Stadt"
+                                        />
+                                      </div>
                                     </div>
                                     <div className="col-md-6">
                                       <label className="form-label">
@@ -842,6 +843,36 @@ function Departmentbar() {
                                       </div>
                                     </div>
                                     <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          PIN
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="PIN"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          PUK
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="PUK"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
                                       <label className="form-label">
                                         Name des Netzanbieters
                                       </label>
@@ -912,6 +943,36 @@ function Departmentbar() {
                                           type="text"
                                           className="form-control"
                                           placeholder="SIM-Karten-Nr"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          PIN
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="PIN"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                      <div>
+                                        <label
+                                          for="exampleInputEmail"
+                                          className="form-label "
+                                        >
+                                          PUK
+                                        </label>
+                                        <input
+                                          type="text"
+                                          className="form-control"
+                                          placeholder="PUK"
                                         />
                                       </div>
                                     </div>
