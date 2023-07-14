@@ -18,6 +18,8 @@ function Departmentbar() {
     BahnCard: "",
   });
   const [inputValue, setInputValue] = useState("");
+  const [fields, setFields] = useState([]);
+
 
   const handleGermanNumber = (e) => {
     const inputPhoneNumber = e.target.value;
@@ -108,6 +110,16 @@ function Departmentbar() {
         prevOrtskenntnisse.filter((_, i) => i !== index)
       );
     }
+  };
+
+  const addField = () => {
+    setFields([...fields, {}]);
+  };
+
+  const removeField = (index) => {
+    const updatedFields = [...fields];
+    updatedFields.splice(index, 1);
+    setFields(updatedFields);
   };
 
   return (
@@ -202,7 +214,7 @@ function Departmentbar() {
                                         />
                                       </div>
                                     </div>
-                               
+
                                     <div className="col-md-6">
                                       <div class="form-group">
                                         <label className="form-label">
@@ -457,7 +469,7 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label "
                                         >
-                                          Steuerkiassc
+                                          Steuerklasse
                                         </label>
                                         <input
                                           type="text"
@@ -472,7 +484,7 @@ function Departmentbar() {
                                           for="exampleInputEmail"
                                           className="form-label"
                                         >
-                                          Kinderferibetrage
+                                          Kinderfreibetrag
                                         </label>
                                         <input
                                           type="text"
@@ -774,6 +786,44 @@ function Departmentbar() {
                                         type="date"
                                         className="form-control"
                                       />
+                                    </div>
+                                    {fields.map((_, index) => (
+                                      <div key={index} className="row">
+                                        <div className="col-md-5">
+                                          <label
+                                            htmlFor=""
+                                            className="form-label"
+                                          >
+                                            Freitextfeld
+                                          </label>
+                                          <input
+                                            type="text"
+                                            className="form-control"
+                                          />
+                                        </div>
+                                        <div className="col-md-5">
+                                          <label
+                                            htmlFor=""
+                                            className="form-label"
+                                          >
+                                            Datum
+                                          </label>
+                                          <input
+                                            type="date"
+                                            className="form-control"
+                                          />
+                                        </div>
+                                        <div className="col-md-2 mt-3">
+                                          <button className="btn btn-danger mt-3"
+                                            onClick={() => removeField(index)}
+                                          >
+                                            -
+                                          </button>
+                                        </div>
+                                      </div>
+                                    ))}
+                                    <div className="col-md-12">
+                                      <button className="btn btn-primary" onClick={addField}>+</button>
                                     </div>
                                   </div>
                                 </div>
